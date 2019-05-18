@@ -18,12 +18,11 @@
 								@foreach($currencies as $currency)
 									<option>{{$currency}}</option>
 								@endforeach
-
 							</select>
 						</div>
 						<div class="col-lg-3">
-							<button class="btn btn-secondary" type="submit">
-								<i class="fa fa-search"></i>
+							<button class="btn btn-secondary w-100" type="submit">
+								Create
 							</button>
 						</div>
 						
@@ -35,7 +34,7 @@
 
 			<div class="col-lg-8 mx-auto mt-5">
 				<div class="graph">
-					<img src="{{$graph}}" alt="" class="mw-100">
+					<img src="{{$graph != '' ? $graph : asset('images/data_nf.png')}}" alt="" class="" style="max-width: 600px; display: block; margin: 0 auto;">
 				</div>
 			</div>
 		</div>

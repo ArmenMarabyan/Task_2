@@ -24,7 +24,7 @@ class GraphsController extends Controller
 				}
 			}
 
-			$dates = [];
+			$dates  = [];
 			$values = [];
 
 			for ($i = 1; $i < count($content); $i+=(count($content)/10)+1) {
@@ -35,15 +35,14 @@ class GraphsController extends Controller
 			$dates = implode('%0D%0A', $dates);
 			$values = implode('%0D%0A', $values);
 
-		}else {
-			$dates = '';
-			$values = '';
+			$imageUrl = 'https://www.chartgo.com/preview.do?charttype=line&width=600&height=300&chrtbkgndcolor=gradientwhite&labelorientation=diagonal&subtitle=&xtitle=&ytitle=Price&source=&fonttypetitle=bold&fonttypelabel=bold&max_yaxis=&min_yaxis=&threshold=&legend=1&gradient=1&border=1&xaxis1=' . $dates . '&yaxis1=' . $values . '&group1=Group+1&groupcolor1=defaultgroupcolours&viewsource=mainView&language=en&sectionSetting=false&sectionSpecific=false&sectionData=false&usePost=';
 		}
-		$imageUrl = 'https://www.chartgo.com/preview.do?charttype=line&width=600&height=300&chrtbkgndcolor=gradientwhite&labelorientation=diagonal&subtitle=&xtitle=&ytitle=Price&source=&fonttypetitle=bold&fonttypelabel=bold&max_yaxis=&min_yaxis=&threshold=&legend=1&gradient=1&border=1&xaxis1=' . $dates . '&yaxis1=' . $values . '&group1=Group+1&groupcolor1=defaultgroupcolours&viewsource=mainView&language=en&sectionSetting=false&sectionSpecific=false&sectionData=false&usePost=';
+
+		
 		$currencies = array_keys(Session::get('currencies'));
     	return view('site.graphs.index', [
     		'currencies' => $currencies,
-    		'graph' => $imageUrl
+    		'graph' => $imageUrl??''
     	]);
     }
 }

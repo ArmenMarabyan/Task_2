@@ -3,15 +3,21 @@
 @section('content')
 <div class="col-lg-12 my-3 p-3 bg-white rounded shadow-sm">
 	<div class="row">
-		<div class="col-lg-4 mx-auto">
-			<form class="search_form mb-2 " method="get" action="{{route('home')}}">	
-				<div class="input-group d-flex">
-					<input type="text" class="form-control datepicker" name="date">
-					<button class="btn btn-secondary w-100" type="submit" >
+		<div class="col-lg-12">
+			<form class="search_form mb-2 w-50 m-auto" method="get" action="{{route('home')}}">	
+				<div class="form-group d-flex">
+					<div class="input-group d-flex">
+						<input type="text" class="form-control datepicker" name="date">
+					</div>
+					<button class="btn btn-secondary" type="submit" name="submit">
 						<i class="fa fa-search"></i>
 					</button>
 				</div>
+
 			</form>
+		</div>
+		<div class="col-lg-12">
+			
 			<table class="table table-striped table-bordered" id="currencies">
 				<thead>
 					<tr>
