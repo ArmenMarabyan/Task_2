@@ -31,16 +31,11 @@ class IndexController extends Controller
 			}
 		}
 
-
 		$date = Carbon::parse($request->date)->format('Y-m-d');
 
 		$currencies = join(",", array_keys(Session::get('currencies')));
 		$url = 'http://api.cba.am/ExchangeRatesToCSV.ashx?DateFrom=' . $date . '&DateTo=' . $date . '&ISOCodes=' . $currencies;
-		//$scc = stream_context_create(array("ssl" => array("verify_peer" => false,
-		//											      "verify_peer_name" => false)));
-		//$content = file_get_contents($url, false, $scc);
 
-		//dd(str_replace(PHP_EOL, "\n", $content));
 		$content = [];
 		$file = fopen($url, 'r');
 

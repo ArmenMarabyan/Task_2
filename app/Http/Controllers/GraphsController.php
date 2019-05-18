@@ -27,11 +27,9 @@ class GraphsController extends Controller
 			$dates = [];
 			$values = [];
 
-			for ($i = 1; $i < count($content); $i++) {
+			for ($i = 1; $i < count($content); $i+=(count($content)/10)+1) {
 				$dates[] = Carbon::createFromFormat("d/m/Y", $content[$i][0])->toDateString();
 				$values[] = $content[$i][1];
-
-
 			}
 			
 			$dates = implode('%0D%0A', $dates);
